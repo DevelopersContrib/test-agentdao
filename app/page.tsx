@@ -62,6 +62,20 @@ export default function Home() {
       color: 'pink',
       href: '/skills/web-search',
       icon: '🔍'
+    },
+    {
+      name: 'PhotoSkill',
+      description: 'Search and manage stock photos from multiple providers',
+      color: 'amber',
+      href: '/skills/photo',
+      icon: '📸'
+    },
+    {
+      name: 'ImageGenerationSkill',
+      description: 'Generate AI-powered images using DALL-E and other models',
+      color: 'violet',
+      href: '/skills/image-generation',
+      icon: '🎨'
     }
   ]
 
@@ -74,7 +88,9 @@ export default function Home() {
       red: 'text-red-600 border-red-200 hover:bg-red-50',
       indigo: 'text-indigo-600 border-indigo-200 hover:bg-indigo-50',
       teal: 'text-teal-600 border-teal-200 hover:bg-teal-50',
-      pink: 'text-pink-600 border-pink-200 hover:bg-pink-50'
+      pink: 'text-pink-600 border-pink-200 hover:bg-pink-50',
+      amber: 'text-amber-600 border-amber-200 hover:bg-amber-50',
+      violet: 'text-violet-600 border-violet-200 hover:bg-violet-50'
     }
     return colors[color as keyof typeof colors] || colors.blue
   }

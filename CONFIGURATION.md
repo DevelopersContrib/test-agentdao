@@ -41,6 +41,11 @@ NEXT_PUBLIC_RSS_FETCH_LIMIT=5
 NEXT_PUBLIC_SEARCH_API_KEY=your_search_api_key_here
 NEXT_PUBLIC_SEARCH_ENGINE_ID=your_search_engine_id_here
 
+# Photo/Image Configuration
+NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=your_unsplash_access_key_here
+NEXT_PUBLIC_PEXELS_API_KEY=your_pexels_api_key_here
+NEXT_PUBLIC_PIXABAY_API_KEY=your_pixabay_api_key_here
+
 # Analytics Configuration
 NEXT_PUBLIC_ANALYTICS_ENABLED=true
 NEXT_PUBLIC_ANALYTICS_ID=your_analytics_id_here
@@ -73,6 +78,29 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 2. Sign up for an account
 3. Generate an API key
 4. Add it to your `.env.local` file
+
+### 4. Photo/Image API Keys (Optional)
+
+#### Unsplash API Key
+
+1. Visit [Unsplash Developers](https://unsplash.com/developers)
+2. Create a new application
+3. Get your Access Key
+4. Add it to your `.env.local` file as `NEXT_PUBLIC_UNSPLASH_ACCESS_KEY`
+
+#### Pexels API Key
+
+1. Visit [Pexels API](https://www.pexels.com/api/)
+2. Sign up for an account
+3. Get your API key
+4. Add it to your `.env.local` file as `NEXT_PUBLIC_PEXELS_API_KEY`
+
+#### Pixabay API Key
+
+1. Visit [Pixabay API](https://pixabay.com/api/docs/)
+2. Register for an account
+3. Get your API key
+4. Add it to your `.env.local` file as `NEXT_PUBLIC_PIXABAY_API_KEY`
 
 ## Testing Configuration
 

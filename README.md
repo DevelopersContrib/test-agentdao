@@ -6,7 +6,7 @@ This is a sample working repository demonstrating the AgentDAO core package and 
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 - AgentDAO account (optional for full features)
 
@@ -159,6 +159,7 @@ Each skill can be customized through configuration objects. See the individual s
 ## 📚 Documentation
 
 For detailed documentation on AgentDAO skills and features, visit:
+
 - [AgentDAO Developers Documentation](https://developers.agentdao.com/docs)
 - [Core Package Reference](https://developers.agentdao.com/docs/core)
 - [Skills Documentation](https://developers.agentdao.com/docs/skills)
