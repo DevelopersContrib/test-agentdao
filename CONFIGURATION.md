@@ -53,12 +53,14 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 ## API Key Setup Instructions
 
 ### 1. OpenAI API Key
+
 1. Visit [OpenAI Platform](https://platform.openai.com/api-keys)
 2. Sign in or create an account
 3. Click "Create new secret key"
 4. Copy the key and add it to your `.env.local` file
 
 ### 2. Twitter API Credentials
+
 1. Visit [Twitter Developer Portal](https://developer.twitter.com/en/portal/dashboard)
 2. Create a new app or use an existing one
 3. Navigate to "Keys and tokens"
@@ -66,6 +68,7 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 5. Add the credentials to your `.env.local` file
 
 ### 3. AgentDAO API Key (Optional)
+
 1. Visit [AgentDAO Dashboard](https://agentdao.com/dashboard)
 2. Sign up for an account
 3. Generate an API key
@@ -103,4 +106,4 @@ After setting up your environment variables:
 
 - Check the [AgentDAO Documentation](https://developers.agentdao.com/docs)
 - Join the [AgentDAO Discord](https://discord.gg/agentdao)
-- Open an issue on [GitHub](https://github.com/agentdao/core/issues) 
+- Open an issue on [GitHub](https://github.com/agentdao/core/issues)
