@@ -1,0 +1,29 @@
+{
+  "name": "@agentdao/next-example",
+  "version": "1.3.0",
+  "description": "Example Next.js application using AgentDAO Skills",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@agentdao/core": "^0.3.3",
+    "autoprefixer": "^10.4.14",
+    "next": "^14.0.0",
+    "postcss": "^8.4.31",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "tailwindcss": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0",
+    "typescript": "^5.0.0"
+  }
+} 
