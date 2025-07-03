@@ -33,9 +33,9 @@ export default function Web3SubscriptionPage() {
           annually: { price: 960, discount: 20 }
         },
         billing: {
-          cycle: 'monthly',
-          gracePeriod: 7,
-          autoRenew: true
+          defaultPeriod: 'monthly' as const,
+          allowPeriodChange: true,
+          prorationEnabled: true
         }
       },
       pro: {
@@ -46,6 +46,11 @@ export default function Web3SubscriptionPage() {
           monthly: { price: 500, discount: 0 },
           quarterly: { price: 1350, discount: 10 },
           annually: { price: 4800, discount: 20 }
+        },
+        billing: {
+          defaultPeriod: 'monthly' as const,
+          allowPeriodChange: true,
+          prorationEnabled: true
         }
       },
       enterprise: {
@@ -56,26 +61,42 @@ export default function Web3SubscriptionPage() {
           monthly: { price: 2000, discount: 0 },
           quarterly: { price: 5400, discount: 10 },
           annually: { price: 19200, discount: 20 }
+        },
+        billing: {
+          defaultPeriod: 'monthly' as const,
+          allowPeriodChange: true,
+          prorationEnabled: true
         }
       }
     },
     provider: {
       rpcUrl: 'https://mainnet.base.org',
-      chainId: 8453
+      chainId: 8453,
+      explorer: 'https://basescan.org'
     },
     payment: {
-      enabled: true,
-      methods: ['adao', 'eth']
-    },
-    integration: {
-      webhooks: {
+      autoApprove: true,
+      requireConfirmation: false,
+      refundPolicy: {
         enabled: true,
-        url: 'https://demo.agentdao.com/webhook'
+        gracePeriod: 7
+      },
+      billing: {
+        allowTrial: true,
+        trialDays: 7,
+        gracePeriodDays: 3
       }
     },
+    integration: {
+      webhookUrl: 'https://demo.agentdao.com/webhook',
+      redirectUrl: 'https://demo.agentdao.com/success',
+      successMessage: 'Subscription created successfully!',
+      errorMessage: 'Failed to create subscription'
+    },
     analytics: {
-      enabled: true,
-      tracking: ['subscriptions', 'revenue', 'usage', 'churn']
+      trackRevenue: true,
+      trackUsage: true,
+      exportData: true
     }
   }
 
@@ -92,11 +113,11 @@ export default function Web3SubscriptionPage() {
     try {
       const subscriptionSkill = new Web3SubscriptionSkill(subscriptionConfig)
       
-      const subscription = await subscriptionSkill.createSubscription({
-        planId,
+      const subscription = await subscriptionSkill.createSubscription(
         walletAddress,
-        billingCycle
-      })
+        planId,
+        billingCycle as 'monthly' | 'quarterly' | 'annually'
+      )
 
       setResult(subscription)
     } catch (err: any) {
@@ -119,9 +140,7 @@ export default function Web3SubscriptionPage() {
     try {
       const subscriptionSkill = new Web3SubscriptionSkill(subscriptionConfig)
       
-      const status = await subscriptionSkill.checkSubscriptionStatus({
-        walletAddress
-      })
+      const status = await subscriptionSkill.checkSubscription(walletAddress)
 
       setResult(status)
     } catch (err: any) {
@@ -144,9 +163,7 @@ export default function Web3SubscriptionPage() {
     try {
       const subscriptionSkill = new Web3SubscriptionSkill(subscriptionConfig)
       
-      const result = await subscriptionSkill.cancelSubscription({
-        walletAddress
-      })
+      const result = await subscriptionSkill.cancelSubscription(walletAddress)
 
       setResult(result)
     } catch (err: any) {
