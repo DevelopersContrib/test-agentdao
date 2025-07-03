@@ -32,6 +32,7 @@ NEXT_PUBLIC_BASE_RPC_URL=https://mainnet.base.org
 NEXT_PUBLIC_CHAIN_ID=8453
 NEXT_PUBLIC_ADAO_TOKEN_ADDRESS=0x1ef7Be0aBff7d1490e952eC1C7476443A66d6b72
 NEXT_PUBLIC_ADAO_TOKEN_DECIMALS=18
+NEXT_PUBLIC_RECEIVER_WALLET_ADDRESS=0x1234567890123456789012345678901234567890
 
 # RSS Feed Configuration
 NEXT_PUBLIC_DEFAULT_RSS_URL=https://hnrss.org/frontpage
@@ -79,7 +80,32 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 3. Generate an API key
 4. Add it to your `.env.local` file
 
-### 4. Photo/Image API Keys (Optional)
+### 4. Web3 Configuration (For Web3SubscriptionSkill)
+
+#### MetaMask Setup
+
+1. Install [MetaMask](https://metamask.io/) browser extension
+2. Create or import a wallet
+3. Add Base network to MetaMask:
+   - Network Name: Base
+   - RPC URL: https://mainnet.base.org
+   - Chain ID: 8453
+   - Currency Symbol: ETH
+   - Block Explorer: https://basescan.org
+
+#### ADAO Token Setup
+
+1. The ADAO token address is pre-configured for Base network
+2. You can add ADAO token to MetaMask using the address: `0x1ef7Be0aBff7d1490e952eC1C7476443A66d6b72`
+3. Ensure you have some ETH on Base network for gas fees
+
+#### Receiver Wallet (Optional)
+
+1. Set `NEXT_PUBLIC_RECEIVER_WALLET_ADDRESS` in your `.env.local` file
+2. This wallet will receive subscription payments
+3. If not set, the default contract receiver will be used
+
+### 5. Photo/Image API Keys (Optional)
 
 #### Unsplash API Key
 
@@ -129,6 +155,13 @@ After setting up your environment variables:
    - Verify your API key is correct
    - Check your OpenAI account has sufficient credits
    - Ensure you're using a supported model
+
+4. **Web3/Blockchain errors**
+   - Ensure MetaMask is installed and connected
+   - Verify you're on the correct network (Base mainnet)
+   - Check that you have sufficient ETH for gas fees
+   - Ensure the ADAO token contract is accessible
+   - Verify your wallet has the required permissions
 
 ### Getting Help
 
