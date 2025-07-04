@@ -38,9 +38,9 @@ NEXT_PUBLIC_RECEIVER_WALLET_ADDRESS=0x1234567890123456789012345678901234567890
 NEXT_PUBLIC_DEFAULT_RSS_URL=https://hnrss.org/frontpage
 NEXT_PUBLIC_RSS_FETCH_LIMIT=5
 
-# Web Search Configuration
-NEXT_PUBLIC_SEARCH_API_KEY=your_search_api_key_here
-NEXT_PUBLIC_SEARCH_ENGINE_ID=your_search_engine_id_here
+# Google Search API Configuration (For WebSearchSkill)
+NEXT_PUBLIC_GOOGLE_SEARCH_API_KEY=your_google_search_api_key_here
+NEXT_PUBLIC_GOOGLE_SEARCH_ENGINE_ID=your_search_engine_id_here
 
 # Photo/Image Configuration
 NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=your_unsplash_access_key_here
@@ -88,10 +88,10 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 2. Create or import a wallet
 3. Add Base network to MetaMask:
    - Network Name: Base
-   - RPC URL: https://mainnet.base.org
+   - RPC URL: <https://mainnet.base.org>
    - Chain ID: 8453
    - Currency Symbol: ETH
-   - Block Explorer: https://basescan.org
+   - Block Explorer: <https://basescan.org>
 
 #### ADAO Token Setup
 
@@ -105,7 +105,45 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 2. This wallet will receive subscription payments
 3. If not set, the default contract receiver will be used
 
-### 5. Photo/Image API Keys (Optional)
+### 5. Google Search API (For WebSearchSkill)
+
+#### Google Custom Search API Setup
+
+1. **Go to Google Cloud Console**: Visit [https://console.cloud.google.com/](https://console.cloud.google.com/)
+
+2. **Create a new project** (or select existing one):
+   - Click on the project dropdown at the top
+   - Click "New Project"
+   - Give it a name like "AgentDAO Web Search"
+   - Click "Create"
+
+3. **Enable the Custom Search API**:
+   - Go to "APIs & Services" > "Library"
+   - Search for "Custom Search API"
+   - Click on it and click "Enable"
+
+4. **Create API Key**:
+   - Go to "APIs & Services" > "Credentials"
+   - Click "Create Credentials" > "API Key"
+   - Copy the generated API key
+   - Add it to your `.env.local` file as `NEXT_PUBLIC_GOOGLE_SEARCH_API_KEY`
+
+5. **Create Custom Search Engine**:
+   - Go to [https://cse.google.com/cse/](https://cse.google.com/cse/)
+   - Click "Add" to create a new search engine
+   - Enter any site (like `google.com`) in "Sites to search"
+   - Check "Search the entire web"
+   - Click "Create"
+   - Copy the Search Engine ID (cx)
+   - Add it to your `.env.local` file as `NEXT_PUBLIC_GOOGLE_SEARCH_ENGINE_ID`
+
+#### Usage Limits
+
+- Google Custom Search API provides 100 free queries per day
+- Additional queries cost $5 per 1000 queries
+- Consider upgrading to a paid plan for production use
+
+### 6. Photo/Image API Keys (Optional)
 
 #### Unsplash API Key
 

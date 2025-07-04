@@ -6,15 +6,47 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     console.log('Received request body:', body)
     
+    // Handle both snake_case (from @agentdao/core) and camelCase keys
     const { 
-      userAddress, 
-      planId, 
-      billingCycle, 
+      // camelCase keys (our API expects these)
+      userAddress: camelUserAddress, 
+      planId: camelPlanId, 
+      billingCycle: camelBillingCycle, 
       signature, 
       message,
       amount,
-      receiverAddress 
+      receiverAddress,
+      // snake_case keys (from @agentdao/core package)
+      user_address: snakeUserAddress,
+      plan_id: snakePlanId,
+      billing_period: snakeBillingPeriod,
+      agent_id,
+      subscription_id,
+      plan_name,
+      payment_token,
+      transaction_hash
     } = body
+
+    // Use camelCase if available, otherwise fall back to snake_case
+    const userAddress = camelUserAddress || snakeUserAddress
+    const planId = camelPlanId || snakePlanId
+    const billingCycle = camelBillingCycle || snakeBillingPeriod
+
+    console.log('Processed request data:', {
+      userAddress,
+      planId,
+      billingCycle,
+      amount,
+      receiverAddress,
+      hasSignature: !!signature,
+      hasMessage: !!message,
+      // Additional data from @agentdao/core
+      agentId: agent_id,
+      subscriptionId: subscription_id,
+      planName: plan_name,
+      paymentToken: payment_token,
+      transactionHash: transaction_hash
+    })
 
     // Validate required fields
     if (!userAddress) {
